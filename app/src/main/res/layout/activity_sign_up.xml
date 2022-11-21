@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+
+    <TextView
+        android:id="@+id/signup_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#C3FF45"
+        android:drawableLeft="@drawable/ic_arrow_back"
+        android:text="SIGN UP"
+        android:textAlignment="center"
+        android:textSize="26sp"
+
+
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/email_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup_nav_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="339dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="307dp"
+        android:ems="10"
+        android:hint="Email"
+        android:textColorHint="#3B3C32"
+        android:inputType="textEmailAddress"
+        android:drawableLeft="@drawable/ic_email"
+        />
+
+    <EditText
+        android:id="@+id/username_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup_nav_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="384dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="#3B3C32"
+        android:hint="Username"
+        android:drawableLeft="@drawable/ic_person"
+        />
+
+    <EditText
+        android:id="@+id/password_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup_nav_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="426dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="221dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColorHint="#3B3C32"
+        android:hint="Password"
+        android:drawableLeft="@drawable/ic_key"
+        />
+
+
+</RelativeLayout>
