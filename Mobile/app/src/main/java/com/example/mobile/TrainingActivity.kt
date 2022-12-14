@@ -74,7 +74,7 @@ class TrainingActivity : AppCompatActivity() {
     private var sessionCount = 0
 
     private var roundNumber = 0
-    private var dataReceived = false
+    private var dataReceived = true
     private var fos: FileOutputStream? = null
     private var sessionFileName: String? = null
     private var sessionFile: File? = null
@@ -456,7 +456,7 @@ class TrainingActivity : AppCompatActivity() {
         }
 
          if( firebaseHandler.getCurrentUser()?.email == null ) {
-             sessionFileName=  "session_" + currentSessionID + ".txt"
+             sessionFileName=  "database_without_account_" + currentSessionID + ".txt"
         } else {
              sessionFileName= "database1.txt"
 

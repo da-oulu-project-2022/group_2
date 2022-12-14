@@ -27,7 +27,7 @@ import java.util.*
 //)
 
 data class Punch(
-    var roundID: Int = 0,
+    var punchID: Int = 0,
     var isCorrect: Boolean = true,
     var speed: Double = 0.0
 )

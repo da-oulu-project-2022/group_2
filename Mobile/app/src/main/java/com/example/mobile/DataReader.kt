@@ -20,7 +20,7 @@ class DataReader   {
     //data title
 
 
-    private val db = Firebase.firestore
+   // private val db = Firebase.firestore
     private val TRAINING = "training"
     private val ROUND = "round"
     private val PUNCH = "punch"
@@ -97,14 +97,7 @@ class DataReader   {
 
         if(currentUser?.email !== null)
         {
-            db.collection("training_test").add(training)
-                .addOnSuccessListener { documentReference ->
-                    Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.id}")
-
-                }
-                .addOnFailureListener { e ->
-                    Log.w("TAG", "Error adding document", e)
-                }
+          firebaseHandler.addDocument("training_test",training)
 
         }
         else
