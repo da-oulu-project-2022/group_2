@@ -31,8 +31,8 @@ class SignInActivity : AppCompatActivity() {
 
         passwordText=findViewById(R.id.editText_password_signin)
 
-       // onStart()
-        signOut()
+        onStart()
+        //signOut()
         //declare the animation
         val topTomiddle = AnimationUtils.loadAnimation(this, R.anim.toptomiddle)
         val scaleTobig = AnimationUtils.loadAnimation(this, R.anim.scaletobig)
@@ -88,11 +88,11 @@ class SignInActivity : AppCompatActivity() {
             updateUI(currentUser)
         }
     }
-     private fun signOut() {
-        // [START auth_sign_out]
-        Firebase.auth.signOut()
-        // [END auth_sign_out]
-    }
+//     private fun signOut() {
+//        // [START auth_sign_out]
+//        Firebase.auth.signOut()
+//        // [END auth_sign_out]
+//    }
 
     private fun login(email:String,password:String){
         auth.signInWithEmailAndPassword(email,password )

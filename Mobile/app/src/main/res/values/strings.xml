@@ -11,7 +11,7 @@
     <string name="ok">OK</string>
     <string name="auto_connect_toggle">Auto connect</string>
     <string name="scan_devices">scan sensors</string>
-    <string name="scanning_devices">stop device scan</string>
+    <string name="scanning_devices">stop scanning</string>
     <string name="end_training">end training</string>
     <string name="punch_result">My punch is: ?</string>
     <string name="speed">My speed is: %s km/h</string>

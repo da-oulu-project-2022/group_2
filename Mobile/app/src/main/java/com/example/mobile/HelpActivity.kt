@@ -1,5 +1,6 @@
 package com.example.mobile
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
@@ -46,33 +47,31 @@ class HelpActivity : AppCompatActivity() {
         myModelList.add(
             MyModel(
             1,
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                    "Mauris malesuada lacinia nunc, quis auctor ex condimentum sed. " +
-                    "Integer blandit, ante eu feugiat venenatis, quam justo placerat tellus, a malesuada est est tempor nibh."
+            "Before training, you need to set the connection between your sensor and the phone. " +
+                    "Go to SETTINGS, have your devices's bluetooth on and hit the SCAN SENSORS button"
         ))
         myModelList.add(MyModel(
             2,
-            "Phasellus turpis ante, placerat in leo in, imperdiet facilisis est. " +
-                    "Integer vel varius purus. Sed lobortis orci ac magna bibendum auctor et tempus tempor, est quam porta sapien, nec mattis metus mi et dui."
+             "Then choose one ID sensor which matches your sensor in the menu list on the right sight," +
+                     " and let's START TRAINING"
         ))
         myModelList.add(MyModel(
             3,
-            " Pellentesque nisl mi, fermentum in quam vel, porttitor condimentum risus. " +
-                    "Donec mi augue, gravida id sagittis ac, sagittis vitae orci."
+            "Pressing the CONNECT button to get your devices connected to each other, you will see the battery power on the right sight. " +
+                    "Okay now you can start your first round in the training. " +
+                    "You can have many rounds in one training session controlled by START or STOP round button "
         ))
         myModelList.add(MyModel(
             4,
-            "Donec placerat ligula eget urna sagittis porttitor. " +
-                    "Maecenas eros tellus, viverra non ipsum non, congue egestas leo. " +
-                    "Suspendisse at ipsum dictum, mattis ipsum ut, tempor ante. " +
-                    "Quisque vitae purus non velit porta efficitur quis vel enim."
+            "When your training session is done, press the END TRAINING button to exit. " +
+                    "Then you will be leaded to the STATS screen to review all of your results"
         ))
-        myModelList.add(MyModel(
-            5,
-            "Praesent hendrerit varius justo, ac ultricies turpis posuere a. " +
-                    "Donec auctor dapibus sollicitudin. " +
-                    "Vivamus nulla elit, pulvinar id venenatis quis, egestas ut diam."
-        ))
+//        myModelList.add(MyModel(
+//            5,
+//            "Praesent hendrerit varius justo, ac ultricies turpis posuere a. " +
+//                    "Donec auctor dapibus sollicitudin. " +
+//                    "Vivamus nulla elit, pulvinar id venenatis quis, egestas ut diam."
+//        ))
 
         //setup Adapter
         myAdapter = ViewPagerAdapter(this, myModelList)
@@ -80,6 +79,13 @@ class HelpActivity : AppCompatActivity() {
         //set Adapter to View
         viewPager.adapter = myAdapter
         viewPager.setPadding(100, 0, 100, 0)
+
+        //navigation
+        help_nav_bar.setOnClickListener {
+            val homePage = Intent(this, HomeActivity::class.java)
+            startActivity(homePage)
+            finish()
+        }
 
 
     }

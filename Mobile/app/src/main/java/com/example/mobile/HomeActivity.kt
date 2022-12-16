@@ -86,8 +86,6 @@ class HomeActivity : AppCompatActivity() {
         waveBottom.startAnimation(middleTobottom)
 
         //DISPLAY USERNAME
-
-
 //        val displayEmail = intent.getStringExtra("DISPLAY_EMAIL")
 //        Log.e("Displayusername",displayEmail.toString())
         if(mFirebaseUser != null){

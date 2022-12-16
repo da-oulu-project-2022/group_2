@@ -19,6 +19,9 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.getSystemService
 import androidx.core.graphics.drawable.DrawableCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.polar.sdk.api.PolarBleApi
 import com.polar.sdk.api.PolarBleApiCallback
 import com.polar.sdk.api.PolarBleApiDefaultImpl
@@ -57,6 +60,8 @@ class SettingActivity : AppCompatActivity() {
     private val listDeviceId = mutableListOf<String>("select one device")
 
     private var numberOfSensors : Int = 0
+
+    private lateinit var auth: FirebaseAuth
 
     //NOTIFICATION BUTTON
     val CHANNEL_ID = "channelID"
@@ -247,7 +252,7 @@ class SettingActivity : AppCompatActivity() {
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("Punch Results")
             .setContentText("This is your punch result")
-            . setSmallIcon(R.drawable.ic_notifications)
+            .setSmallIcon(R.drawable.ic_notifications)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .build()
 
@@ -266,9 +271,24 @@ class SettingActivity : AppCompatActivity() {
         }
 
 
+        //SIGN OUT BUTTON
+        auth = Firebase.auth
+        signOut_Tv.setOnClickListener{
+            Log.e(signOut().toString(), "log out succeed")
+            signOut()
+            val homePage = Intent(this, SignInActivity::class.java)
+            startActivity(homePage)
+            finish()
+        }
 
 
     }   // onCreate end
+
+    private fun signOut() {
+        // [START auth_sign_out]
+        Firebase.auth.signOut()
+        // [END auth_sign_out]
+    }
 
     public override fun onPause() {
         super.onPause()
@@ -284,7 +304,7 @@ class SettingActivity : AppCompatActivity() {
         api.shutDown()
     }
 
-    fun createNotificationChannel(){
+    private fun createNotificationChannel(){
         if (Build. VERSION.SDK_INT >= Build.VERSION_CODES.Q){
             val channel = NotificationChannel (CHANNEL_ID, CHANNEL_NAME,
                 NotificationManager.IMPORTANCE_DEFAULT).apply{
