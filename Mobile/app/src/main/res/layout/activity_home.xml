@@ -100,7 +100,7 @@
         android:id="@+id/statics_button"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:text="Statics"
+        android:text="Statistics"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#3B3C32"
