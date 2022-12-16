@@ -73,7 +73,7 @@ class TrainingActivity : AppCompatActivity() {
     private lateinit var textViewSpeed: TextView
     private lateinit var backNavigation: TextView
 
-    private lateinit var textViewHr: TextView
+    //private lateinit var textViewHr: TextView
     private lateinit var roundTimes: TextView
 
     private var sessionsInfoFileName: String = "session_count.txt"
@@ -115,7 +115,7 @@ class TrainingActivity : AppCompatActivity() {
         imageViewBatteryLevel = findViewById(R.id.ic_battery_level)
         //textViewPunchResult = findViewById(R.id.view_punch_result)
         textViewSpeed = findViewById(R.id.view_speed)
-        textViewHr = findViewById(R.id.view_hr)
+        //textViewHr = findViewById(R.id.view_hr)
         backNavigation = findViewById(R.id.training_nav_bar)
         textViewCountdown1 = findViewById(R.id.view_countdown_1)
         textViewCountdown2 = findViewById(R.id.view_countdown_2)
@@ -184,11 +184,11 @@ class TrainingActivity : AppCompatActivity() {
         // graph
         var plot: XYPlot = findViewById(R.id.view_plot)
         val seriesSpeedFormat = BarFormatter(Color.BLUE, Color.GRAY)
-        val seriesHrFormat = BarFormatter(Color.RED, Color.GRAY)
+        //val seriesHrFormat = BarFormatter(Color.RED, Color.GRAY)
 
-        val tVals = mutableListOf(0)
+        //val tVals = mutableListOf(0)
         val speedVals = mutableListOf(0)
-        val hrVals = mutableListOf(0)
+        //val hrVals = mutableListOf(0)
 
         /*
          * All ble devices discoverable by searchForDevice, api logging enabled
@@ -275,8 +275,10 @@ class TrainingActivity : AppCompatActivity() {
 
                 textViewBattery.text = batteryLevelText
                 if (level == 100) {
-                    textViewBattery.setPadding(14,0,0,0)
+                    //textViewBattery.setPadding(14,0,0,0)
+                    
                     textViewBattery.setTextColor(Color.GREEN)
+                    imageViewBatteryLevel.setColorFilter(Color.GREEN)
                 } else if (level > 60) {
                     textViewBattery.setTextColor(Color.GREEN)
                     imageViewBatteryLevel.setColorFilter(Color.GREEN)
@@ -293,10 +295,12 @@ class TrainingActivity : AppCompatActivity() {
             }
 
             // update hr data
+            /*
             override fun hrNotificationReceived(identifier: String, data: PolarHrData) {
                 Log.d(TAG, "HR -----------------------" + data.hr)
                 heartRate = data.hr
             }
+            */
 
             // works only with oh10 anyways
             override fun polarFtpFeatureReady(s: String) {
@@ -378,7 +382,7 @@ class TrainingActivity : AppCompatActivity() {
                                             Log.e(TAG,"Calculated punch velocity: " + result.first + "km/h")
                                             Log.e(TAG, "Calculated punch velocity: $punchID")
 
-                                            textViewHr.text = getString(R.string.hr, heartRate.toString())
+                                            //textViewHr.text = getString(R.string.hr, heartRate.toString())
 
                                             player.start()
 
@@ -396,15 +400,15 @@ class TrainingActivity : AppCompatActivity() {
 
                                             // Graph
                                             speedVals.add(result.first.toInt())
-                                            hrVals.add(heartRate)
+                                            //hrVals.add(heartRate)
 
                                             plot.clear()
                                             val seriesSpeed: XYSeries = SimpleXYSeries(speedVals, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "speed - km/h")
-                                            val seriesHr: XYSeries = SimpleXYSeries(hrVals, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY,"heart rate - BPM")
+                                            //val seriesHr: XYSeries = SimpleXYSeries(hrVals, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY,"heart rate - BPM")
                                             plot.addSeries(seriesSpeed, seriesSpeedFormat)
-                                            plot.addSeries(seriesHr, seriesHrFormat)
+                                            //plot.addSeries(seriesHr, seriesHrFormat)
 
-                                            plot.setRangeStep(StepMode.INCREMENT_BY_VAL, 10.0)
+                                            plot.setRangeStep(StepMode.INCREMENT_BY_VAL, 5.0)
                                             plot.setDomainStep(StepMode.INCREMENT_BY_VAL, 1.0)
 //                                            plot.setRangeBoundaries(0,120,BoundaryMode.FIXED)
 //                                            plot.setDomainBoundaries(0,30,BoundaryMode.FIXED)
@@ -669,13 +673,7 @@ class TrainingActivity : AppCompatActivity() {
 
     private fun showCountdown(view1: TextView, view2: TextView){
         Thread {
-            var timeResponseSecs = 0
-
-            if (roundNumber == 1) {
-                timeResponseSecs = 3000/1000
-            } else {
-                timeResponseSecs = 8000/1000
-            }
+            var timeResponseSecs = 10000/1000
 
             for (i in 0..timeResponseSecs) {
                 runOnUiThread {

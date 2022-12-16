@@ -38,7 +38,7 @@
         android:id="@+id/view_battery"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="13dp"
         android:paddingLeft="18dp"
         android:textColor="#A4C639"
@@ -127,18 +127,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="@string/speed" />
 
-    <TextView
-        android:id="@+id/view_hr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textColor="@color/green_font"
-        android:textSize="28sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/view_speed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="@string/hr" />
+<!--    <TextView-->
+<!--        android:id="@+id/view_hr"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/green_font"-->
+<!--        android:textSize="28sp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/view_speed"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        tools:text="@string/hr" />-->
 
     <TextView
         android:id="@+id/view_countdown_1"
@@ -174,7 +174,7 @@
         android:id="@+id/view_plot"
         style="@style/FullScreenGraph"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="220dp"
         app:backgroundColor="@color/colorAccent"
         app:domainTitle="@string/domain_title"
         app:domainTitleTextColor="@android:color/black"
@@ -182,7 +182,7 @@
         app:graphBackgroundColor="@color/colorAccent"
         app:graphMarginBottom="20dp"
         app:graphMarginLeft="26dp"
-        app:graphMarginRight="10dp"
+        app:graphMarginRight="16dp"
         app:graphMarginTop="20dp"
         app:gridBackgroundColor="@color/colorAccent"
         app:gridInsetLeft="25dp"
@@ -190,7 +190,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_hr"
+        app:layout_constraintTop_toBottomOf="@id/view_speed"
         app:layout_constraintVertical_bias="0.066"
         app:lineLabels="left|bottom"
         app:rangeTitle="@string/range_title"
